@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fullname');
             $table->string('email')->unique();
-            $table->boolean('is_verified')->default(false);
+            $table->boolean('is_verified')->default(true);
             $table->string('password');
         });
     }

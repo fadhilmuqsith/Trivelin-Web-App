@@ -16,6 +16,10 @@ class TourController extends Controller
     public function index()
     {
         //
+        return view('admin_tour', [
+            "title" => "Tour",
+            "tours" => Tour::all()
+        ]);
     }
 
     /**

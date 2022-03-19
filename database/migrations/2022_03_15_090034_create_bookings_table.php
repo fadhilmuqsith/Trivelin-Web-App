@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('created_at');
             $table->boolean('status')->default(false);
             $table->string('booking_code');
+            $table->string('quantity');
             $table->string('name');
             $table->string('phone_number');
             $table->string('email');

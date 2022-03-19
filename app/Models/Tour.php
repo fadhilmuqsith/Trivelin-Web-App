@@ -9,7 +9,9 @@ class Tour extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = ['title','description','travel_route','travel_type','price','image'];
+
+    public $timestamps = false;
 
     public function tour(){
         return $this->hasMany(Booking::class);
