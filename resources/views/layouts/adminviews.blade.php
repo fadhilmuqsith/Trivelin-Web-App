@@ -33,6 +33,12 @@
   <link href="http://127.0.0.1:8000/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="http://127.0.0.1:8000/assets/css/argon-dashboard.css?v=2.0.1" rel="stylesheet" />
+
+
+  <!-- Summernote CSS - CDN Link -->
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+  <!-- //Summernote CSS - CDN Link -->
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -57,7 +63,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{  ($title === 'Tour') ? 'active' : '' }} " href="/admin/tour">
+          <a class="nav-link {{  ($title === 'Tour') ? 'active' : '' }} " href="{{ route('tour.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
@@ -72,9 +78,9 @@
             <span class="nav-link-text ms-1">Order</span>
           </a>
         </li>
-        
+
         <li class="nav-item">
-          <a class="nav-link " href="../pages/rtl.html">
+          <a class="nav-link {{  ($title === 'Setting') ? 'active' : '' }}" href="/admin/setting">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
             </div>
@@ -92,7 +98,7 @@
             <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link " href="../pages/sign-up.html">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -101,12 +107,12 @@
             <form action="/admin/logout" method="POST">
               @csrf
               <button type="submit" style="background: none; border:none; color:#748098"><span class="nav-link-text">Log Out</span></button>
-          </form>
+            </form>
           </a>
         </li>
       </ul>
     </div>
-    
+
   </aside>
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
@@ -129,10 +135,10 @@
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center text-white font-weight-bold px-0">
               <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none ">@auth
-                    {{ auth()->user()->fullname }}
+              <span class="d-sm-inline d-none ">@auth
+                {{ auth()->user()->fullname }}
                 @endauth</span>
-            </li> 
+            </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -141,7 +147,7 @@
                   <i class="sidenav-toggler-line bg-white"></i>
                 </div>
               </a>
-            </li>         
+            </li>
           </ul>
         </div>
       </div>
@@ -151,9 +157,9 @@
     <div class="container-fluid py-4">
       @yield('container_admin')
     </div>
-    
+
   </main>
-  
+
   <!--   Core JS Files   -->
   <script src="http://127.0.0.1:8000/assets/js/core/popper.min.js"></script>
   <script src="http://127.0.0.1:8000/assets/js/core/bootstrap.min.js"></script>
@@ -256,6 +262,35 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="http://127.0.0.1:8000/assets/js/argon-dashboard.min.js?v=2.0.1"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Summernote JS - CDN Link -->
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#travel_route").summernote({
+        placeholder: 'Masukkan deskripsi tour anda!',
+        tabsize: 2,
+        height: 120,
+        fontNames: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
+        fontNamesIgnoreCheck: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
+        toolbar: [
+          // [groupName, [list of button]]
+          ['fontname', ['fontname']],
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', ['strikethrough']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']]
+        ]
+      });
+      $('.dropdown-toggle').dropdown();
+    });
+  </script>
+  <!-- //Summernote JS - CDN Link -->
 </body>
 
 </html>
