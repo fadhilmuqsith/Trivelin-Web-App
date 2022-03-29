@@ -13,13 +13,11 @@
       <div class="card-body mx-auto d-block">
         <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-2506.jpg?t=st=1648550631~exp=1648551231~hmac=66c96aa3cc623c633ac8988f41acd68f47c0e1024e4df222571999e376852280&w=740" class="img-fluid border-radius-lg" width="450px" alt="Responsive image">
         <h3 style="text-align: center;" class="mb-4"><span class="text-warning">Opss...!</span><br>
-          Paket tour belum ada</h3>
+          Paket tour belum ada !</h3>
       </div>
     </div>
 </div>
 @else
-
-
 
 <div class="row px-4 d-flex justify-content-evenly">
   @foreach ($tours as $tour)
