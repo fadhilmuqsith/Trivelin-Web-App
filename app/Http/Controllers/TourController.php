@@ -51,13 +51,16 @@ class TourController extends Controller
             'title' => 'required',
             'description' => 'required',
             'travel_route' => 'required',
+            'itinary' => 'required',
             'price' => 'required',
+            'price_detail' => 'required',
             'image' => 'file|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
         if ($request->file('image')) {
             $validateData['image'] = $request->file('image')->store('upload_image');
         }
+
 
 
         // Tour::create([
@@ -82,6 +85,11 @@ class TourController extends Controller
     public function show(Tour $tour)
     {
         //
+        return view('admin_show_tour', [
+            'tour' => $tour,
+            "title" => "Detail Tour",
+            "tours" => Tour::all()
+        ]);
     }
 
     /**
@@ -115,7 +123,9 @@ class TourController extends Controller
             'title' => 'required',
             'description' => 'required',
             'travel_route' => 'required',
+            'itinary' => 'required',
             'price' => 'required',
+            'price_detail' => 'required',
             'image' => 'file|image|mimes:jpeg,png,jpg|max:10240',
         ];
 

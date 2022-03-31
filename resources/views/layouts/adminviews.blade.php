@@ -39,6 +39,9 @@
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
   <!-- //Summernote CSS - CDN Link -->
+
+
+  <script src="http://www.decorplanit.com/plugin/autoNumeric-1.9.41.js"></script>
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -65,7 +68,7 @@
         <li class="nav-item">
           <a class="nav-link {{  ($title === 'Tour') ? 'active' : '' }} " href="{{ route('tour.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-spaceship text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Tour</span>
           </a>
@@ -73,7 +76,7 @@
         <li class="nav-item">
           <a class="nav-link {{  ($title === 'Order') ? 'active' : '' }} " href="/admin/order">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-cart text-success text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Order</span>
           </a>
@@ -82,7 +85,7 @@
         <li class="nav-item">
           <a class="nav-link {{  ($title === 'Setting') ? 'active' : '' }}" href="/admin/setting">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+              <i class="ni ni-settings-gear-65 text-danger text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Setting</span>
           </a>
@@ -271,9 +274,9 @@
   <script>
     $(document).ready(function() {
       $("#travel_route").summernote({
-        placeholder: 'Masukkan deskripsi tour anda!',
+        placeholder: 'Masukkan Rute Perjalanan Paket Anda!',
         tabsize: 2,
-        height: 120,
+        height: 200,
         fontNames: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
         fontNamesIgnoreCheck: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
         toolbar: [
@@ -284,12 +287,61 @@
           ['fontsize', ['fontsize']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
-          ['height', ['height']]
+          ['height', ['height']],
+          ['table', ['table']]
         ]
       });
       $('.dropdown-toggle').dropdown();
     });
   </script>
+
+
+  <script>
+    $(document).ready(function() {
+      $("#price_detail").summernote({
+        placeholder: 'Masukkan Harga Detail Paket Anda!',
+        tabsize: 2,
+        height: 220,
+        fontNames: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
+        fontNamesIgnoreCheck: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
+        toolbar: [
+          // [groupName, [list of button]]
+          ['fontname', ['fontname']],
+          ['style', ['bold']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']]
+        ]
+      });
+      $('.dropdown-toggle').dropdown();
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $("#itinary").summernote({
+        placeholder: 'Masukkan Rencana Perjalanan Anda!',
+        tabsize: 2,
+        height: 200,
+        fontNames: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
+        fontNamesIgnoreCheck: ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento'],
+        toolbar: [
+          // [groupName, [list of button]]
+          ['fontname', ['fontname']],
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', ['strikethrough']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']],
+          ['table', ['table']]
+        ]
+      });
+      $('.dropdown-toggle').dropdown();
+    });
+  </script>
+
   <!-- //Summernote JS - CDN Link -->
 </body>
 

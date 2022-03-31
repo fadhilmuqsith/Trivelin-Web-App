@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->longText("description");
-            $table->string("travel_route");
+            $table->longText("travel_route");
+            $table->longText("itinary");
             $table->string("price");
+            $table->longText("price_detail");
             $table->string("image")->nullable();
             $table->timestamps();
         });
