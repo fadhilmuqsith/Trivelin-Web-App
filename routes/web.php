@@ -40,7 +40,11 @@ Route::get('/admin/order', function () {
 })->middleware('auth');
 
 //ROUTE ADMIN SETTING EDIT, VIEW
-Route::get('/admin/setting', [SettingController::class, 'index'])->middleware('auth');
+// Route::get('/admin/setting', [SettingController::class, 'index'])->name('setting')->middleware('auth');
+// Route::patch('/admin/setting', [SettingController::class, 'updatePass']);
+Route::get('admin_setting',  [SettingController::class, 'index'])->name('password.form');
+Route::post('admin_setting',  [SettingController::class, 'update'])->name('password.update');
+
 
 //ROUTE ADMIN TOUR ADD, EDIT, VIEW, DELETE
 Route::resource('tour', TourController::class)->middleware('auth');

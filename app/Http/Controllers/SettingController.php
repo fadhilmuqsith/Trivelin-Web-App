@@ -3,87 +3,59 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use App\Models\User;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException as ValidationValidationException;
 
 class SettingController extends Controller
 {
+    /*
+     * Ensure the user is signed in to access this page
+     */
+    public function __construct()
+    {
+
+        $this->middleware('auth');
+    }
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the form to change the user password.
      */
     public function index()
     {
-        //
         return view('admin_setting', [
             "title" => "Setting",
-            "settings" => Setting::all()
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Update the password for the user.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return Response
      */
-    public function create()
+    public function update(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'old' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $user = User::find(Auth::id());
+        $hashedPassword = $user->password;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        if (Hash::check($request->old, $hashedPassword)) {
+            //Change the password
+            $user->fill([
+                'password' => Hash::make($request->password)
+            ])->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+            return redirect()->route('password.form')->with('success', 'Update Password Berhasil!');
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('password.form')->with('error', 'Update Password gagal!');
     }
 }

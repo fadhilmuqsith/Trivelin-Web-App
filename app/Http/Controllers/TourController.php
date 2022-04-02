@@ -6,6 +6,7 @@ use App\Models\Tour;
 use App\Http\Requests\StoreTourRequest;
 use App\Http\Requests\UpdateTourRequest;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TourController extends Controller
 {
@@ -73,7 +74,7 @@ class TourController extends Controller
 
         Tour::create($validateData);
 
-        return redirect()->route('tour.index')->with('success', 'Registrasi Berhasil ');
+        return redirect()->route('tour.index')->with('success', 'Tambah tour berhasil');
     }
 
     /**
@@ -144,7 +145,8 @@ class TourController extends Controller
 
         $tour->update($validateData);
 
-        return redirect()->route('tour.index')->with('succes', 'Tour Berhasil di Update');
+        // Alert::success('Congrats', 'You\'ve Successfully Registered');
+        return redirect()->route('tour.index')->with('success', 'Update Berhasil ');;
     }
 
     /**

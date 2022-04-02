@@ -38,6 +38,7 @@
   <!-- Summernote CSS - CDN Link -->
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
   <!-- //Summernote CSS - CDN Link -->
 
 
@@ -83,7 +84,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{  ($title === 'Setting') ? 'active' : '' }}" href="/admin/setting">
+          <a class="nav-link {{  ($title === 'Setting') ? 'active' : '' }}" href="{{ route('password.form') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-settings-gear-65 text-danger text-sm opacity-10"></i>
             </div>
@@ -271,6 +272,7 @@
 
   <!-- Summernote JS - CDN Link -->
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+  <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
   <script>
     $(document).ready(function() {
       $("#travel_route").summernote({

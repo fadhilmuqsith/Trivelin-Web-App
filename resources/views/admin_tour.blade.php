@@ -1,6 +1,7 @@
 @extends('layouts.adminviews')
 
 @section('container_admin')
+
 <div class="container-fluid">
 
   <a role="button" class="btn btn-default py-2" href="{{ route('tour.create') }}" style="background-color: white; color:#ffc107">+ Tambah Tour</a>
@@ -22,8 +23,9 @@
 
 
 
-<div class="container">
 
+<div class="container">
+  @include('sweetalert::alert')
   <div class="row">
     <style>
       .card-img-top {

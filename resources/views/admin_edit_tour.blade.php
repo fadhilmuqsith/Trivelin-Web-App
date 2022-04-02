@@ -1,10 +1,12 @@
 @extends('layouts.adminviews')
 
 @section('container_admin')
+
 <!-- <div class="container-fluid">
 
     <h3>Ganti Password</h3>
 </div> -->
+
 
 <div class="row px-4 d-flex justify-content-evenly">
     <div class="col-12">
