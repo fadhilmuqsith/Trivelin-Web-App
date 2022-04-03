@@ -6,6 +6,9 @@ use App\Models\Booking;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
 
+use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
+
 class BookingController extends Controller
 {
     /**
@@ -16,6 +19,10 @@ class BookingController extends Controller
     public function index()
     {
         //
+        return view('admin_order', [
+            "title" => "Order",
+            "orders" => Booking::with('tour')->latest()->get()
+        ]);
     }
 
     /**
@@ -68,9 +75,23 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookingRequest $request, Booking $booking)
+    public function update(Request $request)
     {
         //
+        $booking = Booking::find($request['id']);
+
+        if ($request['status']=='false') {
+            $booking->status = false;
+        }
+        else {
+            $booking->status = true;
+        }
+        
+
+        $booking->save();
+
+        return redirect('/admin/order')->with('success', 'Status Pembayaran Telah Diperbarui');
+        
     }
 
     /**

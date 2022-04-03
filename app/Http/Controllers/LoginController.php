@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -30,7 +31,12 @@ class LoginController extends Controller
             return redirect()->intended('/admin');
         }
 
-        return back()->with('failure', 'Login Gagal ');
+        Alert::error('Gagal Login', 'Pastikan Email/Password Anda Benar ');
+        
+        return back()->with('error', 'Login Gagal ');
+        
+        
+
     }
 
     public function logout(Request $request)

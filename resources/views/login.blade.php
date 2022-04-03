@@ -4,18 +4,17 @@
 
 <h2 class="mb-4">Selamat Datang <br>
   Kembali di <span class="text-warning">Trivelin</span></h2>
-
-@if (session('success'))
+  @include('sweetalert::alert')
+{{-- @if (session('success'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>{{ session('success') }}!</strong> Silahkan Login
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+@endif --}}
 
-@endif
-
-@if (session('failure'))
+@if (session('error'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>{{ session('failure') }}!</strong> Pastikan Email/Password Anda Benar
+  <strong>{{ session('error') }}!</strong> Pastikan Email/Password Anda Benar
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 

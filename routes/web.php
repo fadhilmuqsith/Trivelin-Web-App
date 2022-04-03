@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SettingController;
@@ -32,12 +33,9 @@ Route::get('/admin', function () {
 
 
 
-
-Route::get('/admin/order', function () {
-    return view('admin_order', [
-        "title" => "Order"
-    ]);
-})->middleware('auth');
+// ROUTE ADMIN ORDER
+Route::get('/admin/order', [BookingController::class,'index'])->middleware('auth');
+Route::post('/admin/order', [BookingController::class,'update']);
 
 //ROUTE ADMIN SETTING EDIT, VIEW
 // Route::get('/admin/setting', [SettingController::class, 'index'])->name('setting')->middleware('auth');

@@ -345,6 +345,42 @@
   </script>
 
   <!-- //Summernote JS - CDN Link -->
+
+  {{-- Order Modal JS --}}
+  <script>
+    
+    function formatDate(value) {
+    let date = new Date(value);
+    const day = date.toLocaleString('default', { day: '2-digit' });
+    const month = date.toLocaleString('default', { month: 'short' });
+    const year = date.toLocaleString('default', { year: 'numeric' });
+    return day + '-' + month + '-' + year;
+}
+    
+    
+    $(function () {
+      $('.modalShow').on('click',function () {
+        const order = $(this).data('order');
+
+        $('.id').val(order.id);
+        $('.kode_booking').html(order.booking_code);
+        $('.pilihan_paket').html(order.tour.title);
+        if (order.status == false) {
+          $('.status').html('Menunggu Pembayaran');
+        }
+        else {
+          $('.status').html('Lunas');
+        }
+        $('.nama').html(order.name);
+        $('.email').html(order.email);
+        $('.email').html(order.email);
+        $('.order_date').html(formatDate(order.created_at))
+        $('.tour_date').html(formatDate(order.created_at))
+      });
+    });
+    
+  </script>
+  {{-- End Order Modal JS --}}
 </body>
 
 </html>
