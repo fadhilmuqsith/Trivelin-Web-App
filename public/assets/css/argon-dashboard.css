@@ -23071,7 +23071,7 @@ p {
   background-image: linear-gradient(310deg, #5e72e4, #825ee4);
 }
 .text-gradient.text-info {
-  background-image: linear-gradient(310deg, #1171ef, #11cdef);
+  background-image: linear-gradient(310deg, #F6FF7D, #FFC107);
 }
 .text-gradient.text-success {
   background-image: linear-gradient(310deg, #2dce89, #2dcecc);
@@ -23084,6 +23084,10 @@ p {
 }
 .text-gradient.text-dark {
   background-image: linear-gradient(310deg, #212229, #212529);
+}
+
+.text-gradient.text-edit {
+  background-image: linear-gradient(310deg, #FFC107, #FFF838 );
 }
 
 .blockquote {

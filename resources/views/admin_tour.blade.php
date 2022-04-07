@@ -12,7 +12,7 @@
   @if(count($tours) < 1) <div class="empty col-12">
     <div class="card card-frame">
       <div class="card-body mx-auto d-block">
-        <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-2506.jpg?t=st=1648550631~exp=1648551231~hmac=66c96aa3cc623c633ac8988f41acd68f47c0e1024e4df222571999e376852280&w=740" class="img-fluid border-radius-lg" width="450px" alt="Responsive image">
+        <img src="http://127.0.0.1:8000/assets/img/notfound.png" class="img-fluid border-radius-lg" width="450px" alt="Responsive image">
         <h3 style="text-align: center;" class="mb-4"><span class="text-warning">Opss...!</span><br>
           Paket tour belum ada !</h3>
       </div>

@@ -29,6 +29,19 @@
                         </div>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <label for="kota" class="form-label">Kota Tour</label>
+                        <select class="form-control form-control-lg" name="id_kota" id="id_kota">
+                            @foreach ($kota as $kotas)
+                            <option value="{{ $kotas->id }}">{{ $kotas->nama_kota }}</option>
+                            @endforeach
+                        </select>
+                        @error('kota')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Deskripsi Paket Tour</label>

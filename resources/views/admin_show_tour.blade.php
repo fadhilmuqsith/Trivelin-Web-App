@@ -46,7 +46,7 @@
                         <h4>Harga Paket #{{ $tour->title }}</h4><br>{!! html_entity_decode(nl2br(e($tour->price_detail))) !!}
                     </div>
                     <div class="tab-pane fade" id="ex2-tabs-3" role="tabpanel" aria-labelledby="ex2-tab-3">
-                        <h4>Tujuan Paket #{{ $tour->title }}</h4><br>{!! html_entity_decode(nl2br(e($tour->itinary))) !!}
+                        <h4>Itenary Paket #{{ $tour->title }}</h4><br>{!! html_entity_decode(nl2br(e($tour->itinary))) !!}
                     </div>
                 </div>
 

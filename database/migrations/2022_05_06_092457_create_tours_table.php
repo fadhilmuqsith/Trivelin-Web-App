@@ -23,6 +23,8 @@ return new class extends Migration
             $table->longText("price_detail");
             $table->string("image")->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('id_kota');
+            $table->foreign('id_kota')->references('id')->on('kotas');
         });
     }
 

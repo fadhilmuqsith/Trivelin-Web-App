@@ -9,7 +9,7 @@ class Tour extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'travel_route', 'itinary', 'price', 'price_detail', 'image'];
+    protected $fillable = ['title', 'city', 'description', 'travel_route', 'itinary', 'price', 'price_detail', 'image', 'id_kota'];
 
     public $timestamps = false;
 

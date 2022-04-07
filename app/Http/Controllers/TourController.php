@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tour;
 use App\Http\Requests\StoreTourRequest;
 use App\Http\Requests\UpdateTourRequest;
+use App\Models\kota;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -34,8 +36,9 @@ class TourController extends Controller
         //
         return view('admin_create_tour', [
             "title" => "Tambah Tour",
-            "add_tours" => Tour::all()
-        ]);
+            "add_tours" => Tour::all(),
+            $kota = kota::all()
+        ], compact('kota'));
     }
 
     /**
@@ -56,6 +59,7 @@ class TourController extends Controller
             'price' => 'required',
             'price_detail' => 'required',
             'image' => 'file|image|mimes:jpeg,png,jpg|max:10240',
+            'id_kota' => 'required',
         ]);
 
         if ($request->file('image')) {
@@ -106,8 +110,9 @@ class TourController extends Controller
         return view('admin_edit_tour', [
             'tour' => $tour,
             "title" => "Edit Tour",
-            "add_tours" => Tour::all()
-        ]);
+            "add_tours" => Tour::all(),
+            $kota = kota::all()
+        ], compact('kota'));
     }
 
     /**
@@ -128,6 +133,7 @@ class TourController extends Controller
             'price' => 'required',
             'price_detail' => 'required',
             'image' => 'file|image|mimes:jpeg,png,jpg|max:10240',
+            'id_kota' => 'required',
         ];
 
         $validateData = $request->validate($rules);

@@ -33,6 +33,20 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="kota" class="form-label">Kota Tour</label>
+                        <select class="form-control form-control-lg" name="id_kota" id="id_kota">
+                            @foreach ($kota as $kotas)
+                            <option value="{{ $kotas->id }}" {{ $kotas->id == $tour->id_kota ? 'selected' : '' }}>{{ $kotas->nama_kota }}</option>
+                            @endforeach
+                        </select>
+                        @error('kota')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Deskripsi Paket Tour</label>
                         <textarea type="text" placeholder="Deskripsi" class="form-control" name="description" rows="7" id="description" required>{{ old('description',$tour->description) }}</textarea>
                         @error('description')

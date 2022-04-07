@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\UserPaketWisataController;
 use App\Models\Tour;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/admin/tour/edit/{id}', [TourController::class, 'edit']);
 
 
+
+
 Route::get('/admin', function () {
     return view('admin_dashboard', [
         "title" => "Dashboard"
@@ -31,11 +35,9 @@ Route::get('/admin', function () {
 })->middleware('auth');
 
 
-
-
 // ROUTE ADMIN ORDER
-Route::get('/admin/order', [BookingController::class,'index'])->middleware('auth');
-Route::post('/admin/order', [BookingController::class,'update']);
+Route::get('/admin/order', [BookingController::class, 'index'])->middleware('auth');
+Route::post('/admin/order', [BookingController::class, 'update']);
 
 //ROUTE ADMIN SETTING EDIT, VIEW
 // Route::get('/admin/setting', [SettingController::class, 'index'])->name('setting')->middleware('auth');
@@ -47,7 +49,6 @@ Route::post('admin_setting',  [SettingController::class, 'update'])->name('passw
 //ROUTE ADMIN TOUR ADD, EDIT, VIEW, DELETE
 Route::resource('tour', TourController::class)->middleware('auth');
 
-
 //ROUTE ADMIN REGISTER
 Route::get('/admin/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/admin/register', [RegisterController::class, 'createData']);
@@ -56,3 +57,17 @@ Route::post('/admin/register', [RegisterController::class, 'createData']);
 Route::get('/admin/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/admin/login', [LoginController::class, 'authenticate']);
 Route::post('/admin/logout', [LoginController::class, 'logout']);
+
+
+//User
+
+// Route::get('/home', function () {
+//     return view('user_dashboard', [
+//         "title" => "Dashboard"
+//     ]);
+// });
+Route::resource('home', HomeController::class);
+
+
+//ROUTE User PaketWisata VIEW
+// Route::resource('show_paket', UserPaketWisataController::class);

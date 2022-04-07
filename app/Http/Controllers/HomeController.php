@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kota;
+use App\Models\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +17,10 @@ class UserController extends Controller
     public function index()
     {
         //
+        return view('user_dashboard', [
+            "title" => "Home",
+            "kotas" => Kota::all()->take(8)
+        ]);
     }
 
     /**
@@ -45,7 +52,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $kota = Kota::find($id);
+        $query = DB::table('tours')->where('id_kota', '=', $id)->get();
+        // $query = DB::table('tours')->where('id_kota', $id);
+        // $tour_select = branches::where('id',$id)->get();
+        // select * from tours where id_kota = 1
+        return view('user_show_paket_wisata', ["title" => "Home",], compact('kota', 'query'));
     }
 
     /**
