@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('tour_date');
             $table->date('created_at');
+            $table->date('updated_at');
             $table->boolean('status')->default(false);
             $table->string('booking_code');
             $table->string('quantity');
