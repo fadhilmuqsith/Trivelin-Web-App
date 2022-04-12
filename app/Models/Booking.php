@@ -9,8 +9,9 @@ class Booking extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['tour_date', 'status','booking_code', 'quantity', 'name', 'phone_number', 'email','address'];
     protected $guarded = ['id'];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function tour(){
         return $this->belongsTo(Tour::class);
