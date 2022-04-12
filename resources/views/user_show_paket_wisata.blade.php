@@ -388,14 +388,14 @@
         @endif
     </div>
 
-
     <div class="col-sm-4 my-3">
         <div class="card bg-gradient-default my-3">
             <div class="card-body">
                 <!-- <p class="card-title h4 d-block text-darker">#{{ $kota->nama_kota }}</p> -->
                 <h4 class="card-title" style="text-align: center;">Form reservasi wisata</h4>
                 <hr class="horizontal dark my-0">
-                <form>
+                <form method="post" action="/booking">
+                {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name" class="form-control-label">Nama lengkap</label>
                         <input type="text" class="form-control" id="name" name="name">
@@ -437,8 +437,8 @@
                                 @endif
                         </select>
                     </div>
+                    <button type="submit" class="btn btn-primary">Booking Sekarang</button>
                 </form>
-                <a href="/admin/login" type="button" class="btn btn-default border-radius-lg bg-gradient-success" style="color:white">Pesan sekarang<span> <i class="fa-solid fa-chevron-right"></i></span></a>
             </div>
         </div>
     </div>

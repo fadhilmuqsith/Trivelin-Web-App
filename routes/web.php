@@ -8,6 +8,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\UserPaketWisataController;
 use App\Models\Tour;
+use Database\Factories\BookingFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,8 @@ Route::get('/admin', function () {
 // ROUTE ADMIN ORDER
 Route::get('/admin/order', [BookingController::class, 'index'])->middleware('auth');
 Route::post('/admin/order', [BookingController::class, 'update']);
+//ROUTE USER BOOK TOUR
+Route::post('/booking', [BookingController::class, 'store']);
 
 //ROUTE ADMIN SETTING EDIT, VIEW
 // Route::get('/admin/setting', [SettingController::class, 'index'])->name('setting')->middleware('auth');
@@ -61,11 +64,11 @@ Route::post('/admin/logout', [LoginController::class, 'logout']);
 
 //User
 
-// Route::get('/home', function () {
-//     return view('user_dashboard', [
-//         "title" => "Dashboard"
-//     ]);
-// });
+Route::get('/home', function () {
+    return view('user_dashboard', [
+        "title" => "Dashboard"
+    ]);
+});
 Route::resource('home', HomeController::class);
 
 

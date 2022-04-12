@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Models\Booking;
 use App\Http\Requests\StoreBookingRequest;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\UpdateBookingRequest;
-
+use App\Mail\BookingMail;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 
@@ -46,6 +47,46 @@ class BookingController extends Controller
     public function store(StoreBookingRequest $request)
     {
         //
+        // $validateData = $request->validate([
+        //     'tour_date' => 'required',
+        //     'status' => 'required',
+        //     'travel_route' => 'required',
+        //     'booking_code' => $this->generateUniqueCode(),'required',
+        //     'quantity' => 'required',
+        //     'name' => 'required',
+        //     'phone_number' => 'required',
+        //     'email' => 'required',
+        //     'address' => 'required',
+        //     'tour_id' => 'required',
+        // ]);
+
+        $booking = new Booking;
+        $booking->tour_date = $request->tour_date;
+        $booking->status = 0;
+        $booking->booking_code = $this->generateUniqueCode();
+        $booking->quantity = $request->quantity;
+        $booking->name = $request->name;
+        $booking->phone_number = $request->phone_number;
+        $booking->email = $request->email;
+        $booking->address = $request->address;
+        $booking->tour_id = $request->tour_id;
+        $booking->save();
+
+        // Booking::create($validateData);
+        Mail::to($booking->email)->send(new BookingMail($booking));
+        return redirect()->route('tour.index')->with('success', 'Berhasil Melakukan Booking');
+        
+    }
+
+    
+
+    Public function generateUniqueCode(){
+
+        do {
+
+            $code = random_int(100000, 999999);
+        } while (Booking::where("booking_code", "=", $code)->first());
+        return $code;
     }
 
     /**
