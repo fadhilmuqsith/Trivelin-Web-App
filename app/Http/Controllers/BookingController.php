@@ -19,9 +19,11 @@ class BookingController extends Controller
     public function index()
     {
         //
+           
+
         return view('admin_order', [
             "title" => "Order",
-            "orders" => Booking::with('tour')->latest()->get()
+            "orders" => Booking::with('tour')->latest()->searchorder(request(['search']))->paginate(1)->withQueryString()
         ]);
     }
 

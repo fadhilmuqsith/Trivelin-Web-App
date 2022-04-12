@@ -5,10 +5,28 @@
   <div class="row">
     @include('sweetalert::alert')
     <div class="col-12">
+      <div class="ms-md-auto pe-md-3 col-4 d-flex mb-3">
+        <form method="get" action="/admin/order">
+          <div class="input-group">
+              <input type="text" name="search" class="form-control col-4" placeholder="Cari kode atau email.." value="{{ request('search') }}">
+              <button type="submit" style="background-color: white; color:#ffc107" class="btn btn-outline-white mb-0">Cari</button> 
+          </div>
+        </form>
+      </div>
       <div class="card mb-4">
         <div class="card-header pb-0">
           <h6>Riwayat Pemesanan</h6>
         </div>
+        @if(count($orders) < 1) <div class="empty col-12">
+          <div class="card card-frame">
+            <div class="card-body mx-auto d-block">
+              <img src="http://127.0.0.1:8000/assets/img/notfound.png" class="img-fluid border-radius-lg d-flex " style="margin: auto" width="250px" alt="Responsive image">
+              <h3 style="text-align: center;" class="mb-4"><span class="text-warning">Opss...!</span><br>
+                Riwayat Pemesanan Belum ada !</h3>
+            </div>
+          </div>
+      </div>
+      @else
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
             <table class="table align-items-center mb-0">
@@ -27,16 +45,21 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($orders as $order)
+                @foreach ($orders as $key => $order)
                 <tr>
-                  <td class="align-middle text-center"><p class="text-xs font-weight-bold mb-0">{{ $order->id }}</p></td>
+                  <td class="align-middle text-center"><p class="text-xs font-weight-bold mb-0">{{ $key+1 }}</p></td>
                   <td><p class="text-xs font-weight-bold mb-0">{{ $order->booking_code }}</p></td>
                   <td><p class="text-xs font-weight-bold mb-0">{{ $order->tour->title }}</p></td>
                   <td class="align-middle text-center text-sm">
                     @if ($order->status == true)
                       <span class="badge badge-sm bg-gradient-success">Lunas</span>
                     @else
+                      @if (date("d-M-Y", strtotime($order->created_at)) >= date("d-M-Y"))
                       <span class="badge badge-sm bg-gradient-warning">Menunggu<br>Pembayaran</span>
+                      @else
+                      <span class="badge badge-sm bg-gradient-danger">Dibatalkan</span>
+                      @endif
+                      
                     @endif
                     
                     
@@ -60,6 +83,12 @@
             </table>
           </div>
         </div>
+        <div class="d-flex justify-content-end mt-4 me-3">
+          {{ $orders->links() }}
+        </div>
+        @endif
+        
+        
       </div>
 
       

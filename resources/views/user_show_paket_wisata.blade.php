@@ -358,26 +358,26 @@
                 <!-- Tabs navs -->
                 <ul class="nav nav-tabs nav-fill mb-3 my-3" id="ex1" role="tablist">
                     <li class="nav-item mx-2" role="presentation">
-                        <a class="btn nav-link active my-2" style="padding: 15px 5px;" id="ex2-tab-1" data-bs-toggle="tab" href="#ex2-tabs-1" role="button" aria-controls="ex2-tabs-1" aria-selected="true">Tempat Wisata</a>
+                        <a class="btn nav-link active my-2" style="padding: 15px 5px;" id="tab-tujuan-{{ $querys->id }}" data-bs-toggle="tab" href="#tabs-tujuan-{{ $querys->id }}" role="button" aria-controls="tabs-tujuan-{{ $querys->id }}" aria-selected="true">Tempat Wisata</a>
                     </li>
                     <li class="nav-item mx-2" role="presentation">
-                        <a class="btn nav-link my-2 " style="padding: 15px 5px;" id="ex2-tab-2" data-bs-toggle="tab" href="#ex2-tabs-2" role="button" aria-controls="ex2-tabs-2" aria-selected="false">Detail Harga</a>
+                        <a class="btn nav-link my-2 " style="padding: 15px 5px;" id="tab-harga-{{ $querys->id }}" data-bs-toggle="tab" href="#tabs-harga-{{ $querys->id }}" role="button" aria-controls="tabs-harga-{{ $querys->id }}" aria-selected="false">Detail Harga</a>
                     </li>
                     <li class="nav-item mx-2" role="presentation">
-                        <a class="btn nav-link my-2" style="padding: 15px 5px;" id="ex2-tab-3" data-bs-toggle="tab" href="#ex2-tabs-3" role="button" aria-controls="ex2-tabs-3" aria-selected="false">Itinary</a>
+                        <a class="btn nav-link my-2" style="padding: 15px 5px;" id="tab-itinary-{{ $querys->id }}" data-bs-toggle="tab" href="#tabs-itinary-{{ $querys->id }}" role="button" aria-controls="tabs-itinary-{{ $querys->id }}" aria-selected="false">Itinary</a>
                     </li>
                 </ul>
                 <!-- Tabs navs -->
 
                 <!-- Tabs content -->
                 <div class="tab-content" id="ex2-content">
-                    <div class="tab-pane fade show active" id="ex2-tabs-1" role="tabpanel" aria-labelledby="ex2-tab-1">
+                    <div class="tab-pane fade show active" id="tabs-tujuan-{{ $querys->id }}" role="tabpanel" aria-labelledby="tab-tujuan-{{ $querys->id }}">
                         <h4>Tujuan Paket #{{ $querys->title }}</h4><br>{!! html_entity_decode(nl2br(e($querys->travel_route))) !!}
                     </div>
-                    <div class="tab-pane fade" id="ex2-tabs-2" role="tabpanel" aria-labelledby="ex2-tab-2">
+                    <div class="tab-pane fade" id="tabs-harga-{{ $querys->id }}" role="tabpanel" aria-labelledby="tab-harga-{{ $querys->id }}">
                         <h4>Harga Paket #{{ $querys->title }}</h4><br>{!! html_entity_decode(nl2br(e($querys->price_detail))) !!}
                     </div>
-                    <div class="tab-pane fade" id="ex2-tabs-3" role="tabpanel" aria-labelledby="ex2-tab-3">
+                    <div class="tab-pane fade" id="tabs-itinary-{{ $querys->id }}" role="tabpanel" aria-labelledby="tab-itinary-{{ $querys->id }}">
                         <h4>Itenary Paket #{{ $querys->title }}</h4><br>{!! html_entity_decode(nl2br(e($querys->itinary))) !!}
                     </div>
                 </div>

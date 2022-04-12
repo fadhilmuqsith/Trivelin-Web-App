@@ -379,7 +379,7 @@
         $('.email').html(order.email);
         $('.email').html(order.email);
         $('.order_date').html(formatDate(order.created_at))
-        $('.tour_date').html(formatDate(order.created_at))
+        $('.tour_date').html(formatDate(order.tour_date))
       });
     });
   </script>
