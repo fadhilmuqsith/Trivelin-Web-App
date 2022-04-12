@@ -35,6 +35,12 @@ class BookingMail extends Mailable
         ->view('booking_mail')
         ->with([
             'BookingCode' => $this->MailData->booking_code,
+            'BookingName' => $this->MailData->name,
+            'BookingEmail' => $this->MailData->email,
+            'BookingPhone' => $this->MailData->phone_number,
+            'BookingAddress' => $this->MailData->address,
+            'BookingDate' => $this->MailData->tour_date,
+            'BookingCreate' => $this->MailData->created_at,
         ]);
     }
 }
