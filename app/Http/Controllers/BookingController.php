@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\Booking;
 use App\Http\Requests\StoreBookingRequest;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\UpdateBookingRequest;
-
+use App\Mail\BookingMail;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 
@@ -70,7 +71,9 @@ class BookingController extends Controller
         $booking->save();
 
         // Booking::create($validateData);
-        return redirect()->route('tour.index')->with('success', 'Tambah tour berhasil');
+        Mail::to($booking->email)->send(new BookingMail($booking));
+        return redirect()->route('tour.index')->with('success', 'Berhasil Melakukan Booking');
+        
     }
 
     
