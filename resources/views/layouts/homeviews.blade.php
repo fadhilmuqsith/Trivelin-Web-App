@@ -97,7 +97,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <div class="col-auto m-auto">
-                                <a class="nav-link navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+                                <a class="nav-link navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
                                     Home
                                 </a>
                             </div>
@@ -112,7 +112,7 @@
                         </li>
                         <li class="nav-item ">
                             <div class="col-auto m-auto">
-                                <a class="nav-link navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+                                <a class="nav-link navbar-brand" href="/home#cara-pesan" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
                                     Cara Pemesanan
                                 </a>
                             </div>

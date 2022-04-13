@@ -110,7 +110,7 @@
         </div>
 
         <!--Mengapa Pilih Travelin-->
-        <div class="row d-flex justify-content-center py-5 px-5">
+        <div class="row d-flex justify-content-center py-5 px-5" >
 
             <div class="col-sm d-flex justify-content-center "><img class="m-3 p-5" style="width:100%; height:80%; margin-top:10%" src=" http://127.0.0.1:8000/assets/img/holiday.png" alt=""></div>
 
