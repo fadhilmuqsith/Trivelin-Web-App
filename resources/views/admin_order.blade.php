@@ -35,12 +35,14 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kode Booking</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Pilihan Paket</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jumlah</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No. Telepon</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Pemesanan</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal Perjalanan</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Diubah pada</th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
@@ -50,6 +52,7 @@
                   <td class="align-middle text-center"><p class="text-xs font-weight-bold mb-0">{{ $key+1 }}</p></td>
                   <td><p class="text-xs font-weight-bold mb-0">{{ $order->booking_code }}</p></td>
                   <td><p class="text-xs font-weight-bold mb-0">{{ $order->tour->title }}</p></td>
+                  <td><p class="align-middle text-center text-xs font-weight-bold mb-0">{{ $order->quantity }}</p></td>
                   <td class="align-middle text-center text-sm">
                     @if ($order->status == true)
                       <span class="badge badge-sm bg-gradient-success">Lunas</span>
@@ -69,6 +72,7 @@
                   <td><p class="text-xs font-weight-bold mb-0">{{ $order->phone_number}}</p></td>
                   <td class="align-middle text-center" ><p class="text-xs font-weight-bold mb-0">{{ date("d-M-Y", strtotime($order->created_at))}}</p></td>
                   <td class="align-middle text-center" ><p class="text-xs font-weight-bold mb-0">{{ date("d-M-Y", strtotime($order->tour_date))}}</p></td>
+                  <td class="align-middle text-center" ><p class="text-xs font-weight-bold mb-0">{{ date("d-M-Y", strtotime($order->updated_at))}}</p></td>
                   
                   <td class="align-middle">
                     <button type="button" class="btn btn-link text-dark px-3 mb-0 modalShow" data-bs-toggle="modal" data-bs-target="#confirmModal" data-order="{{ $order }}">
@@ -139,7 +143,8 @@
                       <tr>
                         <td><p class="text-xs font-weight-bold mb-0">Tanggal Perjalanan</p></td>
                         <td><p class="tour_date text-xs font-weight-bold mb-0"></p></td>
-                      </tr>               
+                      </tr> 
+                                   
                       
                     </tbody>
                   </table>

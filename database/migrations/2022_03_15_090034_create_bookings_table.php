@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->date('tour_date');
-            $table->date('created_at');
-            $table->date('updated_at');
             $table->boolean('status')->default(false);
             $table->string('booking_code');
             $table->string('quantity');
@@ -26,6 +24,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('address');
             $table->foreignId('tour_id');
+            $table->timestamps();
         });
     }
 

@@ -24,7 +24,7 @@ class BookingController extends Controller
 
         return view('admin_order', [
             "title" => "Order",
-            "orders" => Booking::with('tour')->latest()->searchorder(request(['search']))->paginate(1)->withQueryString()
+            "orders" => Booking::with('tour')->latest()->searchorder(request(['search']))->paginate(20)->withQueryString()
         ]);
     }
 
