@@ -5,17 +5,17 @@
   <div class="row">
     @include('sweetalert::alert')
     <div class="col-12">
-      <div class="ms-md-auto pe-md-3 col-4 d-flex mb-3">
-        <form method="get" action="/admin/order">
+      <div class="ms-md-auto d-flex mb-3 justify-content-end">
+        <form  class="align-end" method="get" action="/admin/order">
           <div class="input-group">
-              <input type="text" name="search" class="form-control col-4" placeholder="Cari kode atau email.." value="{{ request('search') }}">
+              <input type="text" name="search" class="form-control" placeholder="Cari kode atau email.." value="{{ request('search') }}">
               <button type="submit" style="background-color: white; color:#ffc107" class="btn btn-outline-white mb-0">Cari</button> 
           </div>
         </form>
       </div>
       <div class="card mb-4">
         <div class="card-header pb-0">
-          <h6>Riwayat Pemesanan</h6>
+          <h6>Riwayat Pemesanan  {{ random_int(1,5); }}</h6>
         </div>
         @if(count($orders) < 1) <div class="empty col-12">
           <div class="card card-frame">

@@ -14,7 +14,12 @@
             <!-- Card image -->
             <div class="card-header p-4 mx-3 mt-3 position-relative z-index-1">
                 <p class="card-title h4 d-block text-darker">#{{ $tour->title }}</p>
-                <img class="border-radius-lg w-100" src="{{ asset('storage/' . $tour->image)}}">
+                <img class="border-radius-lg w-100" src="
+                 @if ($tour['image'])
+                   {{ asset('storage/' . $tour->image) }} 
+                @else
+                https://images.unsplash.com/photo-1582414004129-a955c6087f5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBhcmFkaXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60
+                @endif">
             </div>
             <div class="card-body">
                 <h4 class="card-title">Deskripsi tour</h4>

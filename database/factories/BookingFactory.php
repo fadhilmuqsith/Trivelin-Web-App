@@ -17,7 +17,15 @@ class BookingFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "tour_date" => $this->faker->date(),
+            "status" => false,
+            "booking_code" => $this->faker->unique()->randomNumber(6, true),
+            "quantity" => $this->faker->randomDigitNotNull(),
+            'name' => $this->faker->name(),
+            "phone_number" => "0812".$this->faker->unique()->randomNumber(8, true),
+            "email" => $this->faker->freeEmail(),
+            "address" => $this->faker->city(),
+            "tour_id" =>  mt_rand(1,20)
         ];
     }
 

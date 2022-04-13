@@ -11,7 +11,7 @@ class Tour extends Model
 
     protected $fillable = ['title', 'city', 'description', 'travel_route', 'itinary', 'price', 'price_detail', 'image', 'id_kota'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function tour()
     {
