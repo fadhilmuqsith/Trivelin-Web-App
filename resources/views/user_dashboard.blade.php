@@ -169,6 +169,46 @@
 
         </div>
 
+        <!--Cara Pesan-->
+        <div class="row justify-content-center py-5 px-5" id="cara-pesan" >
+            <div class="col-10">
+                <div class="card bg-gradient-default"style="background-color:F8F9FA">
+                    <div class="card-body text-center">
+                        <h3 class="card-title text-info text-gradient" style="text-align: center; margin-bottom:3%">Cara Pemesanan</h3>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                 <img src=" http://127.0.0.1:8000/assets/img/illustrations/search-destinasi.png">
+                                 </div>
+                                 <div class="col">
+                                 <img src=" http://127.0.0.1:8000/assets/img/illustrations/fill-reservasi.png">
+                                 </div>
+                                 <div class="col">
+                                 <img src=" http://127.0.0.1:8000/assets/img/illustrations/check--booking.png">
+                                 </div>
+                            </div>
+                        </div>                        
+                        <div class="container">
+                            <div class="row">
+                                <div class="col" >
+                                <h6 style="text-align: cente;">1.Cari Destinasi Wisata</h6>
+                                <p style="font-size:15px">  cari tempat destinasi wisata pilihan favorit </p>
+                                 </div>
+                                 <div class="col">
+                                 <h6 style="text-align: center;">2. Isi Form Reservasi  </h6>
+                                 <p style="font-size:15px"> Lengkapi form reservasi wisata dengan mengisi beberpa informasi yang dibuthukan</p>
+                                 </div>
+                                 <div class="col">
+                                 <h6 style="text-align: center;">3.Konfirmasi Booking <h6>
+                                 <p style="font-size:15px"> Pastikan kode booking telah terkirim di email anda </p>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
         <div class="row justify-content-center py-5 px-5">
