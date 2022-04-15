@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\ApiKotaController;
+use App\Http\Controllers\API\ApiTourController;
+use App\Http\Controllers\API\ApiUserController;
+use App\Http\Controllers\API\ApiBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('user', [ApiUserController::class, 'fetch']);
 });
+
+Route::get('tours',[ApiTourController::class,'all']);
+Route::get('cities',[ApiKotaController::class,'all']);
+Route::get('orders',[ApiBookingController::class,'all']);
+Route::post('orders',[ApiBookingController::class,'update']);
+
+Route::post('login', [ApiUserController::class, 'login']);
+Route::post('register', [ApiUserController::class, 'register']);

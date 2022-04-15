@@ -15,7 +15,6 @@ class Kota extends Model
 
     public function tour()
     {
-
-        return $this->hasMany(Tour::class);
+        return $this->hasMany(Tour::class, 'id_kota', 'id');
     }
 }

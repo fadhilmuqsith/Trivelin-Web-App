@@ -17,4 +17,8 @@ class Tour extends Model
     {
         return $this->hasMany(Booking::class);
     }
+    public function kota()
+    {
+        return $this->belongsTo(Kota::class, 'id_kota', 'id');
+    }
 }
