@@ -29,14 +29,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/admin', function () {
-    return view('admin_dashboard', [
-        "title" => "Dashboard"
-    ]);
-})->middleware('auth');
+// Route::get('/admin', function () {
+//     return view('admin_dashboard', [
+//         "title" => "Dashboard"
+//     ]);
+// })->middleware('auth');
 
 
 // ROUTE ADMIN ORDER
+Route::get('/admin', [TourController::class, 'index'])->middleware('auth');
 Route::get('/admin/order', [BookingController::class, 'index'])->middleware('auth');
 Route::post('/admin/order', [BookingController::class, 'update']);
 //ROUTE USER BOOK TOUR
@@ -63,7 +64,9 @@ Route::post('/admin/logout', [LoginController::class, 'logout']);
 
 
 //User
-
+Route::get('/', function(){
+    return redirect('/home');
+});
 Route::get('/home', function () {
     return view('user_dashboard', [
         "title" => "Dashboard"
@@ -71,6 +74,9 @@ Route::get('/home', function () {
 });
 Route::resource('home', HomeController::class);
 
+//ROUTE CEK BOOKING
+Route::get('/cek_booking', [HomeController::class, 'cekShow']);
+Route::post('/cek_booking', [BookingController::class, 'cekbook']);
 
 //ROUTE User PaketWisata VIEW
 // Route::resource('show_paket', UserPaketWisataController::class);

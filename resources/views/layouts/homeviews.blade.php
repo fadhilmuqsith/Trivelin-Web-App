@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="http://127.0.0.1:8000/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="http://127.0.0.1:8000/assets/img/favicon.png">
     <title>
-        Trivelin Web | {{ $title }}
+        Travelin Web | {{ $title }}
     </title>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -85,9 +71,8 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3 ">
             <div class="container-fluid">
-                <a class="navbar-brand m-0" href="{{ route('home.index') }}" target="_blank">
+                <a class="navbar-brand m-0" href="/home">
                     <img src="http://127.0.0.1:8000/assets/img/logo-ct-dark.png" class="navbar-brand-img" alt="main_logo" height="40px">
-                    <span class="ms-1 font-weight-bold" style="color: #ffc107">Trivelin Web</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false">
                     <i class="fa-solid fa-bars"></i>
@@ -97,7 +82,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <div class="col-auto m-auto">
-                                <a class="nav-link navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
+                                <a class="nav-link navbar-brand" href="/home" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
                                     Home
                                 </a>
                             </div>
@@ -105,7 +90,7 @@
                         </li>
                         <li class="nav-item">
                             <div class="col-auto m-auto">
-                                <a class="nav-link navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+                                <a class="nav-link navbar-brand" href="/cek_booking" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
                                     Cek Booking
                                 </a>
                             </div>
@@ -117,17 +102,7 @@
                                 </a>
                             </div>
                         </li>
-                        <li>
-                            <div class="col-auto">
-                                <div class="bg-white border-radius-lg d-flex me-2">
-                                    <input type="text" class="form-control border-0 ps-3" placeholder="Type here...">
-
-                                    <button type="button" class="btn my-1 me-1 btn-icon-only rounded-circle" style="background-color: #ffc107; color:white">
-                                        <span class="btn-inner--icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
+              
                     </ul>
                 </div>
             </div>

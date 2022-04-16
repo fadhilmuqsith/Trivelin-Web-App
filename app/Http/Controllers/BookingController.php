@@ -10,6 +10,8 @@ use App\Mail\BookingMail;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class BookingController extends Controller
 {
     /**
@@ -74,7 +76,7 @@ class BookingController extends Controller
 
         // Booking::create($validateData);
         Mail::to($booking->email)->send(new BookingMail($booking));
-        return redirect()->route('tour.index')->with('success', 'Berhasil Melakukan Booking');
+        return redirect()->route('home.index')->with('success', 'Berhasil Melakukan Booking');
         
     }
 
@@ -146,5 +148,28 @@ class BookingController extends Controller
     public function destroy(Booking $booking)
     {
         //
+    }
+
+    public function cekbook(Request $request){
+        $validated = $request->validate([
+            "booking_code" => 'required',
+            'email' => 'required|email:dns',
+        ]);
+
+        if ($validated) {
+            $book =  Booking::with('tour')
+                    ->where('booking_code', $validated['booking_code'])
+                    ->where('email',$validated['email'])->first();
+        }
+        if (!$book) {
+            Alert::error('Pemesanan Tidak Ditemukan', 'Pastikan Kode Booking dan Email Benar ');
+        
+            return back()->with('error', 'Pemesanan Tidak Ditemukan');
+        }
+
+        return view('user_cek_booking',[
+            "title" => "Cek Booking",
+            "book" => $book
+        ]);
     }
 }

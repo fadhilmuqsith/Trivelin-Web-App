@@ -94,4 +94,12 @@ class HomeController extends Controller
     {
         //
     }
+
+    public function cekShow()
+    {
+        return view('user_cek_booking',[
+            "title" => "Cek Booking",
+            "book" => null
+        ]);
+    }
 }
