@@ -74,7 +74,7 @@ class BookingController extends Controller
 
         // Booking::create($validateData);
         Mail::to($booking->email)->send(new BookingMail($booking));
-        return redirect()->route('tour.index')->with('success', 'Berhasil Melakukan Booking');
+        return redirect()->route('home.index')->with('success', 'Berhasil Melakukan Booking');
         
     }
 

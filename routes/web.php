@@ -71,6 +71,8 @@ Route::get('/home', function () {
 });
 Route::resource('home', HomeController::class);
 
+Route::get('/', 'App\Http\Controllers\HomeController@index');
+
 
 //ROUTE User PaketWisata VIEW
 // Route::resource('show_paket', UserPaketWisataController::class);
