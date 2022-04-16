@@ -18,8 +18,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="http://127.0.0.1:8000/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="http://127.0.0.1:8000/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://user-images.githubusercontent.com/42905384/163003004-5a39733e-dc94-4dba-b58f-6cb2df0022f0.png">
+    <link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/42905384/163003004-5a39733e-dc94-4dba-b58f-6cb2df0022f0.png">
     <title>
         Trivelin Web | {{ $title }}
     </title>
@@ -86,7 +86,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3 ">
             <div class="container-fluid">
                 <a class="navbar-brand m-0" href="{{ route('home.index') }}" target="_blank">
-                    <img src="http://127.0.0.1:8000/assets/img/logo-ct-dark.png" class="navbar-brand-img" alt="main_logo" height="40px">
+                    <img src="https://user-images.githubusercontent.com/42905384/163003004-5a39733e-dc94-4dba-b58f-6cb2df0022f0.png" class="navbar-brand-img" alt="main_logo" height="40px">
                     <span class="ms-1 font-weight-bold" style="color: #ffc107">Trivelin Web</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false">

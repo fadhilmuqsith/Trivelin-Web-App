@@ -18,8 +18,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="http://127.0.0.1:8000/assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="http://127.0.0.1:8000/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://user-images.githubusercontent.com/42905384/163003004-5a39733e-dc94-4dba-b58f-6cb2df0022f0.png">
+  <link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/42905384/163003004-5a39733e-dc94-4dba-b58f-6cb2df0022f0.png">
   <title>
     Trivelin Web | {{ $title }}
   </title>
@@ -50,8 +50,8 @@
   <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
-        <img src="http://127.0.0.1:8000/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+      <a class="navbar-brand m-0" href="http://127.0.0.1:8000/" target="_blank">
+        <img src="https://user-images.githubusercontent.com/42905384/163003004-5a39733e-dc94-4dba-b58f-6cb2df0022f0.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold" style="color: #ffc107">Trivelin Web</span>
       </a>
     </div>
