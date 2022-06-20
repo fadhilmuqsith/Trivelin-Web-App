@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Mail\BookingMail;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class ApiBookingController extends Controller
 {
@@ -55,5 +57,33 @@ class ApiBookingController extends Controller
 
         $booking->save();
         return ["status" => "Orders Has Been Updated"];
+    }
+
+    Public function generateUniqueCode(){
+
+        do {
+
+            $code = random_int(100000, 999999);
+        } while (Booking::where("booking_code", "=", $code)->first());
+        return $code;
+    }
+
+    public function cretaeOrder(Request $request)
+    {
+        $booking = new Booking;
+        $booking->tour_date = $request->tour_date;
+        $booking->status = 0;
+        $booking->booking_code = $this->generateUniqueCode();
+        $booking->quantity = $request->quantity;
+        $booking->name = $request->name;
+        $booking->phone_number = $request->phone_number;
+        $booking->email = $request->email;
+        $booking->address = $request->address;
+        $booking->tour_id = $request->tour_id;
+        $booking->save();
+
+        // Booking::create($validateData);
+        //Mail::to($booking->email)->send(new BookingMail($booking));
+        return ["status" => "Orders Has Been Create"];
     }
 }

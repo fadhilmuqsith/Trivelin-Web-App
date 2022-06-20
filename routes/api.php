@@ -26,6 +26,7 @@ Route::get('tours',[ApiTourController::class,'all']);
 Route::get('cities',[ApiKotaController::class,'all']);
 Route::get('orders',[ApiBookingController::class,'all']);
 Route::post('orders',[ApiBookingController::class,'update']);
+Route::post('checkout', [ApiBookingController::class, 'cretaeOrder']);
 
 Route::post('login', [ApiUserController::class, 'login']);
 Route::post('register', [ApiUserController::class, 'register']);
