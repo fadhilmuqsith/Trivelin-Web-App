@@ -84,6 +84,6 @@ class ApiBookingController extends Controller
 
         // Booking::create($validateData);
         //Mail::to($booking->email)->send(new BookingMail($booking));
-        return ["status" => "Orders Has Been Create"];
+        return ["status" => true,"message" => "Orders Has Been Create", "data" => $booking];
     }
 }
